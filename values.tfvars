@@ -14,7 +14,7 @@ private_subnet_cidr_blocks = ["10.0.0.128/26", "10.0.0.192/26"]
 key_pair_name = "your_key_pair_name"
 ami_id = "your_ami_id"
 instance_type = "your_instance_type"
-user_data = ""                      //either you can mention the bash script here or specify location of script file during the terraform apply time
+user_data = "bash script"           //either you can mention the bash script here or specify location of script file during the terraform apply time
                                    //example: terraform apply -var 'user_data="#!/bin/bash\necho \"Hello, World!\""' or
                                   //example: terraform apply -var-file=file.txt -var-file=userdata.sh  , here file.txt is for variables and userdata.sh is for script
 
