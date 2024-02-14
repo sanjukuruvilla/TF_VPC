@@ -1,6 +1,6 @@
 ## About
 
-This configuration will create a VPC with two subnets (one public and one private) in different availability zones within the N. Virginia region. It will also launch EC2 instances in each subnet with the specified AMI, instance type, and user data. Adjust the default values in values.tfvars as needed for your specific requirements.
+This configuration will create a **VPC with two subnets (one public and one private)** in **different availability zones within the N. Virginia region**. It will **also launch EC2 instances in each subnet** with the specified AMI, instance type, and user data. Adjust the default values in **values.tfvars** as needed for your specific requirements.
 
 It provides a flexible and scalable infrastructure setup that can be easily customized to suit various deployment requirements.
 
