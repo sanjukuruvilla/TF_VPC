@@ -7,19 +7,19 @@ variable aws_region {
 variable vpc_cidr_block {
   description = Class C CIDR block for VPC
   type        = string
-  default     = 10.0.0.024
+  default     = 10.0.0.0/24
 }
 
 variable public_subnet_cidr_blocks {
   description = CIDR blocks for public subnets
   type        = list(string)
-  default     = [10.0.0.026, 10.0.0.6426]
+  default     = [10.0.0.0/26, 10.0.0.64/26]
 }
 
 variable private_subnet_cidr_blocks {
   description = CIDR blocks for private subnets
   type        = list(string)
-  default     = [10.0.0.12826, 10.0.0.19226]
+  default     = [10.0.0.128/26, 10.0.0.192/26]
 }
 
 variable key_pair_name {
