@@ -32,10 +32,10 @@ It provides a flexible and scalable infrastructure setup that can be easily cust
 - `ami_id`: AMI ID for EC2 instance.
 - `instance_type`: Instance type for EC2 instance.
 - `user_data`: specify the bash script  //either you can mention the bash script directly here or specify location of script file during the terraform apply time
-  
-                                       //example: terraform apply -var 'user_data="#!/bin/bash\necho \"Hello, World!\""' or
-  
-                                      //example: terraform apply -var-file=file.txt -var-file=userdata.sh  , here 'file.txt' is for variables and 'userdata.sh' script for user_data
+- 
+                                        //example: terraform apply -var 'user_data="#!/bin/bash\necho \"Hello, World!\""' or
+-
+                                    //example: terraform apply -var-file=file.txt -var-file=userdata.sh  , here 'file.txt' is for variables and 'userdata.sh' script for user_data
 
 Replace these default values with your specific configurations before deploying.
 
