@@ -1,7 +1,7 @@
-## README
+## About
 
-About
 This repository contains Terraform configuration files to create and manage AWS resources such as VPCs, subnets, security groups, and EC2 instances. 
+
 It provides a flexible and scalable infrastructure setup that can be easily customized to suit various deployment requirements.
 
 ### Usage
