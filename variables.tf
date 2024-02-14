@@ -37,6 +37,10 @@ variable "ami_id" {
 variable "instance_type" {
   description = "Instance type for EC2 instance"
   type        = string
-  default     = "t2.micro"
+  default     = "your_instance_type"
 }
 
+variable "user_data" {
+  description = "User data script to be executed on instance launch"
+  type        = string
+}
