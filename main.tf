@@ -27,5 +27,5 @@ resource "aws_instance" "private_instance" {
   instance_type = var.instance_type
   subnet_id     = aws_subnet.private_subnet.id
   key_name      = var.key_pair_name
-  user_data     = var.user_data
+  user_data     = file(var.user_data)
 }
