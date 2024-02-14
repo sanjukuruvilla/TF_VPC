@@ -25,7 +25,6 @@ It provides a flexible and scalable infrastructure setup that can be easily cust
 **Default Values:**
 - `aws_region`: The AWS region where resources will be created.
 - `vpc_cidr_block`: CIDR block for VPC.
-- `security_group_ingress_rules`: Define desirable ports
 - `public_subnet_cidr_blocks`: CIDR blocks for public subnets.
 - `private_subnet_cidr_blocks`: CIDR blocks for private subnets.
 - `key_pair_name`: Name of the SSH key pair for EC2 instance.
