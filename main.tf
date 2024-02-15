@@ -28,12 +28,9 @@ resource "aws_instance" "public_instance" {
   key_name      = var.key_pair_name
   user_data     = var.user_data
   associate_public_ip_address = true
-  tags = {
-     Name = "instance-${count.index + 1}"
-  }
   lifecycle {
-    create_before_destroy = true
-  }
+     create_before_destroy = true
+    }
 }
 
 resource "aws_instance" "private_instance" {
@@ -43,11 +40,36 @@ resource "aws_instance" "private_instance" {
   subnet_id     = aws_subnet.private_subnet.id
   key_name      = var.key_pair_name
   user_data     = var.user_data
+}
+
+##Lifecycle management
+resource "aws_instance" "private_instance"{
+  lifecycle {
+      create_before_destroy = true
+    }
+}
+
+##Tagging the instances
+##Tagging public instances
+resource "aws_instance" "public_instance" {
+  count = var.public_instance_count # Define the number of public instances to create
+
   tags = {
-    Name = "instance-${count.index + 1}"
+    Name = "Public ${count.index + 1}"  # Set the Name tag to "Public 1" for the first private instance, "Public 2" for the second, and so on
   }
 }
 
+##Tagging private instances
+resource "aws_instance" "private_instance" {
+  count = var.private_instance_count # Define the number of private instances to create
+
+  tags = {
+    Name = "Private ${count.index + 1}"  # Set the Name tag to "Private 1" for the first private instance, "Private 2" for the second, and so on
+  }
+}
+
+
+##Getting the ip addresses for public and private instances
 output "public_ip_addresses" {
   value = aws_instance.public_instance.*.public_ip
 }
