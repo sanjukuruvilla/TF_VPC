@@ -6,4 +6,3 @@ sudo apt-get upgrade -y
 
 # Install Ansible
 sudo apt-get install -y ansible
-
