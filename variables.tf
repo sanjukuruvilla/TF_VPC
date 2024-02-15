@@ -41,3 +41,13 @@ variable "user_data" {
   description = "User data script to be executed on instance launch"
   type        = string
 }
+
+variable "public_instance_count"{
+  description = "mention the desired number of public instances"
+  type        = number
+}
+
+variable "private_instance_count"{
+  description = "mention the desired number of private instances"
+  type        = number
+}
