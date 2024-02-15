@@ -23,10 +23,10 @@ Before using this Terraform configuration, ensure you have the following prerequ
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/terraform-aws-infrastructure.git
+   git clone https://github.com/sanjukuruvilla/TF_VPC.git
 2. Navigate to the directory containing the Terraform configuration files:
    ```bash
-   cd terraform-aws-infrastructure
+   cd TF_VPC
 3. Initialize Terraform:
    ```bash
    terraform init
