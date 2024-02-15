@@ -35,7 +35,16 @@ Before using this Terraform configuration, ensure you have the following prerequ
 6. Apply the Terraform configuration to provision the AWS infrastructure:
    ```bash
    terraform apply
-   
+7. When applying the Terraform configuration, specify the `.tfvars` file using the `-var-file` flag:
+
+   ```bash
+   terraform apply -var-file="values.tfvars" -var 'user_data="userdata.sh"' #assuming the userdata.sh is in same location where terraform files present
+   ```
+
+   This Terraform ad-hoc command instructs Terraform to read variable values from the specified `.tfvars` file during the `apply` operation.
+
+   Using `.tfvars` files in this manner allows for easier management of configuration options, especially when working with multiple environments or configurations.
+
 ## Customization
 
 To customize this Terraform configuration for your specific needs, you can modify the following variables in variables.tf:
@@ -59,6 +68,36 @@ To customize this Terraform configuration for your specific needs, you can modif
 `public_instance_count`: Desired number of public instances.
 
 `private_instance_count`: Desired number of private instances.
+
+Certainly! Here's a bonus tip for users on how to use a `.tfvars` file with Terraform's ad-hoc command `terraform apply -var-file="filename.tfvars"`:
+
+### Bonus Tip: Using .tfvars File with Terraform
+
+Instead of directly modifying the `variables.tf` file, you can create a separate `.tfvars` file to provide variable values to Terraform. This approach allows for easier management of configuration options and promotes a cleaner separation between code and configuration.
+
+1. Create a new `.tfvars` file, e.g., `custom-variables.tfvars`, and specify variable values in key-value pairs. For example:
+
+   ```hcl
+   aws_region = "desired region"
+   vpc_cidr_block = "desired cidr block"
+   public_subnet_cidr_block = "desired cidr block"
+   private_subnet_cidr_block = "desired cidr block"
+   key_pair_name = "your key"
+   ami_id = "ami-12345678"
+   instance_type = "your instance type"
+   public_instance_count = desired number of instances
+   private_instance_count = desired number of instances
+   ```
+
+2. When applying the Terraform configuration, specify the `.tfvars` file using the `-var-file` flag:
+
+   ```bash
+   terraform apply -var-file="custom-variables.tfvars"
+   ```
+
+   This Terraform ad-hoc command instructs Terraform to read variable values from the specified `.tfvars` file during the `apply` operation.
+
+   Using `.tfvars` files in this manner allows for easier management of configuration options, especially when working with multiple environments or configurations.
 
 ## Contributing
 
