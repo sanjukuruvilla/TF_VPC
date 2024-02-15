@@ -1,3 +1,9 @@
+# **DEVOPSAI **
+
+# File: main.tf
+# Description: Terraform configuration for creating AWS VPC, subnets, and instances.
+# Purpose: This Terraform script provisions an AWS VPC with public and private subnets, along with EC2 instances in each subnet.
+
 resource "aws_vpc" "my_vpc" {
   cidr_block = var.vpc_cidr_block
 }
@@ -15,7 +21,6 @@ resource "aws_subnet" "private_subnet" {
 }
 
 resource "aws_instance" "public_instance" {
- 
   count         = var.public_instance_count 
   ami           = var.ami_id
   instance_type = var.instance_type
@@ -25,11 +30,10 @@ resource "aws_instance" "public_instance" {
   associate_public_ip_address = true
   tags = {
      Name = "instance-${count.index + 1}"
-
-}
-lifecycle{
-        create_before_destroy = true
-}
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_instance" "private_instance" {
