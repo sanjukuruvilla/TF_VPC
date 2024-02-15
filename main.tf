@@ -15,17 +15,39 @@ resource "aws_subnet" "private_subnet" {
 }
 
 resource "aws_instance" "public_instance" {
+ 
+  count         = var.public_instance_count 
   ami           = var.ami_id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.public_subnet.id
   key_name      = var.key_pair_name
   user_data     = var.user_data
+  associate_public_ip_address = true
+  tags = {
+     Name = "instance-${count.index + 1}"
+
+}
+lifecycle{
+        create_before_destroy = true
+}
 }
 
 resource "aws_instance" "private_instance" {
+  count         = var.private_instance_count
   ami           = var.ami_id
   instance_type = var.instance_type
   subnet_id     = aws_subnet.private_subnet.id
   key_name      = var.key_pair_name
-  user_data     = file(var.user_data)
+  user_data     = var.user_data
+  tags = {
+    Name = "instance-${count.index + 1}"
+  }
+}
+
+output "public_ip_addresses" {
+  value = aws_instance.public_instance.*.public_ip
+}
+
+output "private_ip_addresses" {
+  value = aws_instance.private_instance.*.private_ip
 }
