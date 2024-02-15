@@ -35,7 +35,7 @@ Before using this Terraform configuration, ensure you have the following prerequ
 6. Apply the Terraform configuration to provision the AWS infrastructure:
    ```bash
    terraform apply
-7. When applying the Terraform configuration, specify the `.tfvars` file using the `-var-file` flag:
+7. When applying the Terraform configuration, specify the `.tfvars` file using the `-var-file` flag also `-var` flag for passing the *userdata* script file:
 
    ```bash
    terraform apply -var-file="values.tfvars" -var 'user_data="userdata.sh"' #assuming the userdata.sh is in same location where terraform files present
