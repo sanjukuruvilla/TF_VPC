@@ -1,3 +1,9 @@
+# **DEVOPSAI **
+
+# File: providers.tf
+# Description: Terraform provider configuration.
+# Purpose: Specifies the required Terraform provider for AWS and its version.
+
 terraform {
   required_providers {
     aws = {
