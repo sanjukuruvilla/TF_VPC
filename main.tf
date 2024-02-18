@@ -43,7 +43,7 @@ resource "aws_instance" "private_instance" {
 }
 
 ##Lifecycle management
-resource "aws_instance" "private_instance"{
+resource "aws_instance" "lf_private_instance"{
   lifecycle {
       create_before_destroy = true
     }
@@ -51,7 +51,7 @@ resource "aws_instance" "private_instance"{
 
 ##Tagging the instances
 ##Tagging public instances
-resource "aws_instance" "public_instance" {
+resource "aws_instance" "tg_public_instance" {
   count = var.public_instance_count # Define the number of public instances to create
 
   tags = {
@@ -60,7 +60,7 @@ resource "aws_instance" "public_instance" {
 }
 
 ##Tagging private instances
-resource "aws_instance" "private_instance" {
+resource "aws_instance" "tg_private_instance" {
   count = var.private_instance_count # Define the number of private instances to create
 
   tags = {
