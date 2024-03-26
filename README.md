@@ -102,6 +102,14 @@ Instead of directly modifying the `variables.tf` file, you can create a separate
 
    Using `.tfvars` files in this manner allows for easier management of configuration options, especially when working with multiple environments or configurations.
 
+#Exporting the output to a file 
+   
+   - You can use below adhoc command to get all the values in a file called 'Terraform_output.txt'
+   
+      ```bash
+      terraform output > Terraform_output.txt
+      ```
+      
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request. Happy Coding...
