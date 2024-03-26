@@ -102,7 +102,7 @@ Instead of directly modifying the `variables.tf` file, you can create a separate
 
    Using `.tfvars` files in this manner allows for easier management of configuration options, especially when working with multiple environments or configurations.
 
-#Exporting the output to a file 
+## Exporting the output to a file 
    
    - You can use below adhoc command to get all the values in a file called 'Terraform_output.txt'
    
